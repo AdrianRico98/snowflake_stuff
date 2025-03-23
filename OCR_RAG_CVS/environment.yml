@@ -1,0 +1,14 @@
+name: app_environment
+channels:
+  - snowflake
+dependencies:
+  - matplotlib=*
+  - numpy=*
+  - opencv=*
+  - pillow=*
+  - plotly=*
+  - seaborn=*
+  - sklearn-compat=*
+  - snowflake-snowpark-python=*
+  - snowflake.core=*
+  - tesserocr=*
