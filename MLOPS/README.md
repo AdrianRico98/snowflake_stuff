@@ -25,7 +25,7 @@ Este repositorio contiene un proyecto completo de Machine Learning implementado 
 El proyecto sigue estos pasos:
 
 1. **Configuración del entorno**: Conexión a Snowflake y configuración de recursos.
-2. **Carga de datos**: Importación del dataset del Titanic a una tabla en Snowflake.
+2. **Carga de datos**: Importación del dataset del Titanic a un stage de snowflake.
 3. **Preprocesamiento**: Manejo de valores faltantes, codificación y escalado de variables usando Snowpark ML.
 4. **Análisis exploratorio**: Visualización de patrones y relaciones en los datos.
 5. **Modelado**: Entrenamiento de modelos XGBoost para predecir supervivencia.
