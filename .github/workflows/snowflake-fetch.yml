@@ -1,44 +1,31 @@
 name: Fetch Repo After Push
-
-# Correrá después de hacer un push a main
 on:
   push:
     branches:
       - main
-
-  #  Permite ejecutar manualmente desde la UI de Github
   workflow_dispatch:
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: Prod
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
       - name: Setup Python 3.10
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-
       - name: Install Python packages
         run: pip install -r requirements.txt
-
       - name: Configure SnowCLI
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-
         run: |
-          ifconfig
           cd $GITHUB_WORKSPACE
           echo "[connections]" > connections.toml
           echo "[connections.default]" >> connections.toml
           echo "account = \"$SNOWFLAKE_ACCOUNT\"" >> connections.toml
-          chown $USER "/home/runner/work/ci_cd_streamlit/ci_cd_streamlit/connections.toml"
-          chmod 0600 "/home/runner/work/ci_cd_streamlit/ci_cd_streamlit/connections.toml"
-
+          chmod 0600 connections.toml
       - name: Fetch Repo Using Creds in Env Variables
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
@@ -49,4 +36,4 @@ jobs:
           SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
         run: |
-          snow --config-file $GITHUB_WORKSPACE/connections.toml sql -q "ALTER GIT REPOSITORY streamlit_demo FETCH"
+          snow --config-file $GITHUB_WORKSPACE/connections.toml sql -q "ALTER GIT REPOSITORY PRUEBAS_ADRIAN.PUBLIC.streamlit_demo FETCH"
