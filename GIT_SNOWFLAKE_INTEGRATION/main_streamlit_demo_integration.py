@@ -4,6 +4,7 @@ import pandas as pd
 st.title("Demo Streamlit en Snowflake 🚀")
 
 st.write("¡Hola desde Snowflake!")
+st.write("Este es un cambio en la aplicación")
 
 # Datos de ejemplo
 data = {

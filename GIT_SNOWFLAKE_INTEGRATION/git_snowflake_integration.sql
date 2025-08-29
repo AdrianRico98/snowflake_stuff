@@ -31,7 +31,7 @@ ALTER GIT REPOSITORY streamlit_demo FETCH;
 
 -- Crear el streamlit app
 CREATE OR REPLACE STREAMLIT streamlit_demo_app
-  ROOT_LOCATION = '@PRUEBAS_ADRIAN.PUBLIC.streamlit_demo/branches/main'
+  ROOT_LOCATION = '@PRUEBAS_ADRIAN.PUBLIC.streamlit_demo/branches/main/GIT_SNOWFLAKE_INTEGRATION/'
   MAIN_FILE = 'main_streamlit_demo_integration.py'
   QUERY_WAREHOUSE = STREAMLIT_WH;
   
